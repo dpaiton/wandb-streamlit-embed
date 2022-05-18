@@ -5,7 +5,7 @@ import numpy as np
 import altair as alt
 
 
-def _sinudoid(times, ampitude, offset, frequency, phase):
+def _sinusoid(times, ampitude, offset, frequency, phase):
     """
     times : array of time steps
     amplitude : half the distance between the maximum and minimum values of the function
