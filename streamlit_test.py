@@ -36,7 +36,6 @@ color = st.selectbox('Line color', ['blue', 'red'])
 
 def format_inputs(
     time_params: list,
-    time_offset: float,
     amplitude: bool,
     frequency: float,
     phase: float,
