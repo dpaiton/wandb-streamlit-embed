@@ -21,7 +21,7 @@ def sin_df(parameters:dict) -> pd.DataFrame:
     offset = parameters['offset']
     freq = 2 * np.pi * parameters['frequency']
     phase = parameters['phase']
-    df = pd.DataFrame({'signal': _sinusoid(times, amp, offset, freq, phase)})
+    df = pd.DataFrame({'f(t)': _sinusoid(times, amp, offset, freq, phase)})
     return df
 
 
