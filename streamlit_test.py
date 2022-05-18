@@ -5,8 +5,6 @@ import numpy as np
 import altair as alt
 
 
-model = construct_model()
-
 def _sinudoid(times, ampitude, offset, frequency, phase):
     """
     times : array of time steps
