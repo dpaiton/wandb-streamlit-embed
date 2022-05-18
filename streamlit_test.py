@@ -24,6 +24,12 @@ def sin_df(parameters:dict) -> pd.DataFrame:
     df = pd.DataFrame({'f(t)': _sinusoid(times, amp, offset, freq, phase)})
     return df
 
+def hex_from_name(name):
+    if name == 'blue':
+        hex_val = '#005b96'
+    elif name == 'red':
+        hex_val = '#990000'
+    return hex_val
 
 
 time_offset = st.slider(label = 'time offset', min_value = 0., max_value = 10., value = 0.)
@@ -40,6 +46,7 @@ def format_inputs(
     frequency: float,
     phase: float,
     offset: float,
+    color: str,
     )-> dict:
     return {
         'times': np.arange(*time_params),
@@ -50,13 +57,14 @@ def format_inputs(
         'frequency': frequency,
         'phase': phase,
         'offset': offset,
+        'color': hex_from_name(color)
     }
 
 time_min = 0.
 time_max = 30.
 time_step = 0.1
 
-params = format_inputs([time_min, time_max, time_step], amplitude, frequency, phase, offset)
+params = format_inputs([time_min, time_max, time_step], amplitude, frequency, phase, offset, color)
 adjusted_times = params['times'] + time_offset
 
 S = sin_df(parameters=params)
@@ -66,6 +74,6 @@ S = S.reset_index().rename(columns={'index': 't', 0:'f(t)'})#.query('t < 22.')
 c = alt.Chart(S).mark_line().encode(
     x=alt.X('t',scale=alt.Scale(domain=[time_min, time_max])),
     y='f(t)',
-    color=color
+    color=params['color']
 )
 st.altair_chart(c, use_container_width=True)
