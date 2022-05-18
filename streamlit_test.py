@@ -13,7 +13,7 @@ def _sinusoid(times, ampitude, offset, frequency, phase):
     frequency : number of cycles between 0 and 1 (the period is 1/frequency)
     phase : horizontal shift
     """
-    return amplitude * np.sin(frequency * time + phase) + offset
+    return amplitude * np.sin(frequency * times + phase) + offset
 
 def sin_df(parameters:dict) -> pd.DataFrame:
     times = params['times']
