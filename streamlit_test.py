@@ -57,7 +57,7 @@ time_max = 30.
 time_step = 0.1
 
 params = format_inputs([time_min, time_max, time_step], amplitude, frequency, phase, offset)
-adjusted_times = params['times'] + age_years
+adjusted_times = params['times'] + time_offset
 
 S = sin_df(parameters=params)
 S.index = adjusted_times
