@@ -28,7 +28,7 @@ def sin_df(parameters:dict) -> pd.DataFrame:
 
 time_offset = st.slider(label = 'time offset', min_value = 0., max_value = 10., value = 0.)
 amplitude = st.slider(label = 'amplitude', min_value = 0., max_value = 5., value = 1.)
-frequency = st.slider(label = 'frequency', min_value = 0., max_value = 1., value = 0.)
+frequency = st.slider(label = 'frequency', min_value = 0., max_value = 1., value = 0.5)
 phase = st.slider(label = 'horizontal shift', min_value = 0., max_value = np.pi, value = 0.)
 offset = st.slider(label = 'vertical shift', min_value = 0., max_value = 5., value=0.)
 
@@ -65,6 +65,7 @@ S.index = adjusted_times
 S = S.reset_index().rename(columns={'index': 't', 0:'f(t)'})#.query('t < 22.')
 c = alt.Chart(S).mark_line().encode(
     x=alt.X('t',scale=alt.Scale(domain=[time_min, time_max])),
-    y='f(t)'
+    y='f(t)',
+    color=color
 )
 st.altair_chart(c, use_container_width=True)
