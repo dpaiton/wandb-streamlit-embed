@@ -74,6 +74,6 @@ S = S.reset_index().rename(columns={'index': 't', 0:'f(t)'})#.query('t < 22.')
 c = alt.Chart(S).mark_line().encode(
     x=alt.X('t',scale=alt.Scale(domain=[time_min, time_max])),
     y='f(t)',
-    color=params['color']
+    color=alt.value(params['color'])
 )
 st.altair_chart(c, use_container_width=True)
