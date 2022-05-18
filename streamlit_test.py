@@ -45,7 +45,7 @@ def format_inputs(
     offset: float,
     )-> dict:
     return {
-        'times': np.arange(*time_params)
+        'times': np.arange(*time_params),
         'time_min': time_params[0],
         'time_max': time_params[1],
         'time_step': time_params[2],
