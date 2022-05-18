@@ -47,7 +47,7 @@ def format_inputs(
         'time_max': time_params[1],
         'time_step': time_params[2],
         'amplitude': amplitude,
-        'frequency': freuqency,
+        'frequency': frequency,
         'phase': phase,
         'offset': offset,
     }
