@@ -38,7 +38,7 @@ frequency = st.slider(label = 'frequency', min_value = 0., max_value = 1., value
 phase = st.slider(label = 'horizontal shift', min_value = 0., max_value = np.pi, value = 0.)
 offset = st.slider(label = 'vertical shift', min_value = 0., max_value = 5., value=0.)
 
-color = st.selectbox('Line color', ['blue', 'red'])
+color = st.selectbox('line color', ['blue', 'red'])
 
 def format_inputs(
     time_params: list,
