@@ -72,7 +72,7 @@ S.index = adjusted_times
 
 S = S.reset_index().rename(columns={'index':'t', 0:'f(t)'})#.query('t < 22.')
 c = alt.Chart(S).mark_line().encode(
-    x=alt.X('t', scale = alt.Scale(domain=[S.index.min, S.index.max])),
+    x=alt.X('t', scale = alt.Scale(domain=[np.min(adjusted_times), np.max(adjusted_times)])),
     y='f(t)',
     color=alt.value(params['color'])
 )
