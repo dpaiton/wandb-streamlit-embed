@@ -60,8 +60,8 @@ def format_inputs(
         'color': hex_from_name(color)
     }
 
-time_min = 0.
-time_max = 30.
+time_min = 0. + time_offset
+time_max = 30. + time_offset
 time_step = 0.1
 
 params = format_inputs([time_min, time_max, time_step], amplitude, frequency, phase, offset, color)
