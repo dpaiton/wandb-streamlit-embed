@@ -70,9 +70,9 @@ adjusted_times = params['times'] + time_offset
 S = sin_df(parameters=params)
 S.index = adjusted_times
 
-S = S.reset_index().rename(columns={'index': 't', 0:'f(t)'})#.query('t < 22.')
+S = S.reset_index().rename(columns={'index':'t', 0:'f(t)'})#.query('t < 22.')
 c = alt.Chart(S).mark_line().encode(
-    x=alt.X('t',scale=alt.Scale(domain=[time_min, time_max])),
+    x=alt.X('t', scale = alt.Scale(domain=[S.index.min, S.index.max])),
     y='f(t)',
     color=alt.value(params['color'])
 )
